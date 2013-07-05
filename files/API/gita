@@ -620,14 +620,13 @@ end
 -- Cleanup
 term.clear()
 term.setCursorBlink( false )
-term.se
+term.setCursorPos(1,1)
 end
 
 function requestObject(url,sN,mode)
     if not url then error('Incorrect statement!') end
     if not sN and mode == 'get' then error('Check mode!') end
     if mode == 'get' then
-        write('Fetching: '..url..'... ')
         http.request(url)
         local requesting = true
         while requesting do
@@ -637,11 +636,9 @@ function requestObject(url,sN,mode)
                 temp = io.open(sN,'w')
                 temp:write(respondedText)
                 temp:close()
-                print('Successfully saved!')
                 requesting = false
                 return true
             elseif event == "http_failure" then
-                print("Fetch failed! Please check values or non-existent project!")
                 requesting = false
                 return false
             end
@@ -654,7 +651,6 @@ function requestObject(url,sN,mode)
             local event, url, sourceText = os.pullEvent()
             if event == "http_success" then
                 local respondedText = sourceText.readAll()
-                print('Successfully fetched!\n')
                 temp = io.open('temp','w')
                 temp:write(respondedText)
                 temp:close()
@@ -663,7 +659,6 @@ function requestObject(url,sN,mode)
                 requesting = false
                 return true
             elseif event == "http_failure" then
-                print("Fetch failed!")
                 requesting = false
                 return false
             end
@@ -678,10 +673,12 @@ end
 
 function get(auth,reps,bran,paths,sN)
     if not auth or not reps or not bran or not paths or not sN then error('Attempt to compile nonexistent terms!') end
-    requestObject(compileURL(auth,reps,bran,paths),sN,'get')
+    statusCode = requestObject(compileURL(auth,reps,bran,paths),sN,'get')
+    return statusCode
 end
 
 function view(auth,reps,bran,paths)
     if not auth or not reps or not bran or not paths then error('Attempt to compile nonexistent terms!') end
-     requestObject(compileURL(auth,reps,bran,paths),nil,'view')
+    statusCode = requestObject(compileURL(auth,reps,bran,paths),nil,'view')
+    return statusCode
 end
