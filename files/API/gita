@@ -7,10 +7,8 @@
 
 
 local function edit(file)
-    tArgs[1] = path
-
 -- Error checking
-local sPath = shell.resolve( tArgs[1] )
+local sPath = 'temp'
 
 local x,y = 1,1
 local w,h = term.getSize()
