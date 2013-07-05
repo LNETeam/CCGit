@@ -1,0 +1,21 @@
+Git API by LNET Technologies
+Git Shell by LNET Technologies
+
+Usage (API):
+
+    git.get(author,repository,branch,path,saveName)
+        'git.get()' is an API to retrieve a Github file from the specified destination.
+            author: Owner of the repository
+            repository: project
+            branch: which branch you want to take from
+            saveName: where to save the file
+
+        'git.view()' is an API to simply VIEW the specified file. It is NOT saved!
+            author: Owner of the repository
+            repository: project
+            branch: which branch you want to take from
+            saveName: where to save the file
+
+Usage (Shell):
+    
+    git [get/view] [author] [repository] [branch] [path] {file-name}
