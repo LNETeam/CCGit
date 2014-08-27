@@ -1,7 +1,7 @@
 install = {}
 install.PreAction = function() 
 term.clear() 
-term.serCursorPos(1,1)
+term.setCursorPos(1,1)
 return true
 end
 install.Dependencies = {}
