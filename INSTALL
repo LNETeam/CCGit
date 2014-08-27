@@ -3,6 +3,6 @@ install.PostAction = function()
 os.reboot()
 return true
 end
-install.Dependencies = {}
+install.Dependencies = {"Redfile"}
 install.InstallHierarchy = {{"/files/Shell/git","/git"}}
 return install
