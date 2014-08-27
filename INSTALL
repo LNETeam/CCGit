@@ -1,4 +1,4 @@
 install = {}
 install.Dependencies = {}
-install.InstallHierarchy = {{"/files/API/gita","/gita"}}
+install.InstallHierarchy = {{"/files/API/gita","/gita"},{"/files/Shell/git","/git"}}
 return install
