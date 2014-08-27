@@ -1,5 +1,8 @@
 install = {}
-install.PreAction = function() term.clear() end
+install.PreAction = function() 
+term.clear() 
+return true
+end
 install.Dependencies = {}
 install.InstallHierarchy = {{"/files/API/gita","/gita"},{"/files/Shell/git","/git"}}
 return install
