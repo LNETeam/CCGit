@@ -1,5 +1,5 @@
 install = {}
-install.PreAction = function() 
+install.PostAction = function() 
 term.clear() 
 term.setCursorPos(1,1)
 return true
