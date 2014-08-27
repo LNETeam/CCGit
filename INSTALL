@@ -1,7 +1,6 @@
 install = {}
 install.PostAction = function() 
-term.clear() 
-term.setCursorPos(1,1)
+os.reboot()
 return true
 end
 install.Dependencies = {}
