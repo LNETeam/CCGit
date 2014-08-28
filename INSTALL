@@ -1,8 +1,4 @@
 install = {}
-install.PostAction = function() 
-os.reboot()
-return true
-end
-install.Dependencies = {"Redfile"}
+install.Dependencies = {}
 install.InstallHierarchy = {{"/files/Shell/git","/git"}}
 return install
